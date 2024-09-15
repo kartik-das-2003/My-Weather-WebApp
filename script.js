@@ -17,29 +17,66 @@ async function checkWeather(city) {
         document.querySelector(".weather").style.display = "none";
     } else {
         var data = await response.json();
-    
+        console.log(data);
+
         document.querySelector(".city").innerHTML = data.name;
         document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
         document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
         document.querySelector(".wind").innerHTML = data.wind.speed + " kmph";
+        document.querySelector(".description").innerHTML = data.weather[0].description.toUpperCase();
+        document.querySelector(".pressure").innerHTML = data.main.pressure + " hPa";
+        document.querySelector(".map").innerHTML = data.name;
 
-        if(data.weather[0].id >= 801 && data.weather[0].id < 899) {
-            weatherIcon.src = "images/clouds.png";
-        } else if(data.weather[0].id >= 500 && data.weather[0].id < 599) {
-            weatherIcon.src = "images/rain.png";
-        } else if(data.weather[0].id >= 300 && data.weather[0].id < 399) {
-            weatherIcon.src = "images/drizzle.png";
-        } else if(data.weather[0].id >= 700 && data.weather[0].id < 799) {
-            weatherIcon.src = "images/mist.png";
-        } else if(data.weather[0].id >= 200 && data.weather[0].id < 299) {
-            weatherIcon.src = "images/thunderstrom.png";
-        } else if(data.weather[0].id >= 600 && data.weather[0].id < 699) {
-            weatherIcon.src = "images/snow.png";
-        } else {
-            if(data.weather[0].icon[2] === 'd') {
-                weatherIcon.src = "images/sun-clear.png";
-            } else {
-                weatherIcon.src = "images/moon-clear.png";
+        const mapElement = document.querySelector(".map");
+        mapElement.onclick = () => {
+            window.open(`https://www.google.com/search?q=${data.name}`, '_blank');
+        };
+        /*Case Of Day*/
+        if(data.weather[0].icon[2] === 'd') {
+            if(data.weather[0].id >= 801 && data.weather[0].id < 899) {
+                weatherIcon.src = "images/Day-Image/clouds.png";
+            } 
+            else if(data.weather[0].id >= 500 && data.weather[0].id < 599) {
+                weatherIcon.src = "images/Day-Image/rain.png";
+            } 
+            else if(data.weather[0].id >= 300 && data.weather[0].id < 399) {
+                weatherIcon.src = "images/Day-Image/drizzle.png";
+            } 
+            else if(data.weather[0].id >= 700 && data.weather[0].id < 799) {
+                weatherIcon.src = "images/Day-Image/mist.png";
+            } 
+            else if(data.weather[0].id >= 200 && data.weather[0].id < 299) {
+                weatherIcon.src = "images/Day-Image/thunderstrom.png";
+            } 
+            else if(data.weather[0].id >= 600 && data.weather[0].id < 699) {
+                weatherIcon.src = "images/Day-Image/snow.png";
+            } 
+            else {
+                weatherIcon.src = "images/Day-Image/sun-clear.png";
+            }
+        } 
+        /*Case Of Night*/
+        else {
+            if(data.weather[0].id >= 801 && data.weather[0].id < 899) {
+                weatherIcon.src = "images/Night-Image/cloud-night";
+            } 
+            else if(data.weather[0].id >= 500 && data.weather[0].id < 599) {
+                weatherIcon.src = "images/Night-Image/rainy-night.png";
+            } 
+            else if(data.weather[0].id >= 300 && data.weather[0].id < 399) {
+                weatherIcon.src = "images/Night-Image/drizzle-night.png";
+            } 
+            else if(data.weather[0].id >= 700 && data.weather[0].id < 799) {
+                weatherIcon.src = "images/Night-Image/mist-night.png";
+            } 
+            else if(data.weather[0].id >= 200 && data.weather[0].id < 299) {
+                weatherIcon.src = "images/Night-Image/thunder-night.png";
+            } 
+            else if(data.weather[0].id >= 600 && data.weather[0].id < 699) {
+                weatherIcon.src = "images/Night-Image/snow-night.png";
+            } 
+            else {
+               weatherIcon.src = "images/Night-Image/clear-night.png";
             }
         }
 
@@ -47,3 +84,7 @@ async function checkWeather(city) {
         document.querySelector(".error").style.display = "none";
     }
 }
+
+
+
+

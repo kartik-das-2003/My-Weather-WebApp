@@ -1,20 +1,20 @@
 *{
     margin: 0;
     padding: 0;
-    font-family:'Times New Roman', Times, serif;
+    font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
 }
 
 body{
-    background: #222;
+    background:linear-gradient(to right,orange,white,rgb(134, 240, 134));
 }
 
 .card{
-    width: 90%;
+    width: 90%; /* Subtract menu width from the card */
     max-width: 470px;
-    background:linear-gradient(to bottom, #2baffc, #7df889);
+    background:linear-gradient(to bottom, rgb(12, 107, 250),rgb(12, 236, 12));
     color:#fff;
-    margin: 100px auto 0;
+    margin: 30px auto 0;
     border-radius: 20px;
     padding: 25px 20px;
     text-align: center;
@@ -24,7 +24,7 @@ body{
     width: 100%;
     display:flex;
     align-items:center;
-    justify-content:space-between
+    justify-content:space-evenly;
 }
 
 .search input{
@@ -90,7 +90,11 @@ body{
     margin-right: 10px;
 }
 
-.humidity, .wind{
+.description,
+.humidity, 
+.wind, 
+.pressure,
+.map{
     font-size: 20px;
     margin-top: -6px;
 }
