@@ -58,7 +58,7 @@ async function checkWeather(city) {
         /*Case Of Night*/
         else {
             if(data.weather[0].id >= 801 && data.weather[0].id < 899) {
-                weatherIcon.src = "images/Night-Image/cloud-night";
+                weatherIcon.src = "images/Night-Image/cloud-night.png";
             } 
             else if(data.weather[0].id >= 500 && data.weather[0].id < 599) {
                 weatherIcon.src = "images/Night-Image/rainy-night.png";
