@@ -9,6 +9,42 @@ body{
     background:linear-gradient(to right,orange,white,rgb(134, 240, 134));
 }
 
+nav {
+  background: linear-gradient(to right, #27294d, rgb(158, 159, 154));  
+  color: #fff;
+  position: fixed;
+  width:100%;
+}
+
+nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav .logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+nav .nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+nav .nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+nav .nav-links a:hover {
+  color: #ddd;
+}
+
 .card{
     width: 90%; /* Subtract menu width from the card */
     max-width: 470px;
@@ -110,3 +146,17 @@ body{
     margin-top: 10px;
     display: none;
 }
+
+/* Footer */
+footer {
+  background: linear-gradient(to left, #27294d, rgb(158, 159, 154));  
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+}
+
+footer p {
+  margin: 0;
+}
+
